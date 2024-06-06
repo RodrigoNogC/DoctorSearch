@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/geral.css">
+    <link rel="shortcut icon" href="../img/favicom.png" type="image/x-icon">
+    <title>MedicalSearch</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 id="logo">MedicalSearch</h1>
+            <div class="search-profile"> 
+                <div class="search">
+                    <input class="search-input" type="text" placeholder="Busque o Médico Aqui">
+                </div>
+                <button class="btnprofile">
+                    <img class="imgprofile" type="button" src="../img/profile.png" alt=""><a href="../html/profile.html">PERFIL</a>
+                </button>
+                <button class="btnexit">
+                    <img class="imgexit" src="../img/exit.png" alt="exit"><a href="../html/index.html">SAIR</a>
+                </button>
+            </div> 
+        </nav>
+        <button type="submit" id="btnadd">+</button>
+    </header>
+
+    <main>
+        <!-- Carrossel Bootstrap -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <!-- Os itens do carrossel serão adicionados dinamicamente -->
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+
+        <!-- Cards de médicos -->
+        <div class="container mt-5">
+            <div class="row card-deck" id="doctors-cards">
+                <!-- Os cards de médicos serão adicionados dinamicamente -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Seu script JavaScript -->
+    <script src="../js/home.js"></script>
+</body>
+</html>

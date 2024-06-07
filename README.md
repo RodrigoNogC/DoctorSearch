@@ -18,26 +18,26 @@ The project will be divided into modules to facilitate the development and organ
 
 ## 2. HTML Files
 
-- `index.html`: Main page (list of doctors).
-- `registration.html`: Doctors' registration page.
-- `cards.html`: Doctor details page.
-- `edit.html`: Page for editing doctors (optional).
+- `home.html`: Main page (list of doctors).
+- `register.html`: Doctors' registration page.
+- `cards.html`: Doctor details page and editing doctors (optional).
+- `index.html`: Page for Login page.
 
 ## 3. CSS Files
 
 - `cards.css`: Styles for the Doctors cards page.
 - `register.css`: Style for the registration page.
 - `home.css`: Main page style.
-- `style.css`: Global styles for the application.
-- `login.css`: Specific styles for the login page.
+- `geral.css`: Global styles for the application.
+- `style.css`: Specific styles for the login page.
 
 ## 4. JavaScript Files
 
 - `scripts.js`: General scripts.
 - `login.js`: Logic for user login.
 - `home.js`: Logic for the home page and carousel.
-- `registration.js`: Logic for user registration.
-- `details.js`: Logic for displaying a doctor's details.
+- `main.js`: Logic for basic form on main page.
+- `register.js`: Logic for registration Users.
 - `doctor.js`: Logic for editing doctors (optional).
 
 ## 5. Logic Implementation

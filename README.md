@@ -1,114 +1,107 @@
-
 # Project Title
 
-A brief description of what this project does and who it's for
-1. Estrutura do Projeto
+A brief description of what this project does and who it's for.
 
-O projeto será dividido em módulos para facilitar o desenvolvimento e a organização do código. Cada módulo terá seu próprio arquivo HTML, CSS e JavaScript.
+## 1. Project Structure
 
-Módulos:
+The project will be divided into modules to facilitate the development and organization of the code. Each module will have its own HTML, CSS, and JavaScript file.
 
-Login: Responsável pela autenticação do usuário.
-Cadastro: Responsável pelo cadastro de novos médicos.
-Listagem: Responsável pela listagem de todos os médicos.
-Detalhes: Responsável pela exibição dos detalhes de um médico específico.
-Edição: Responsável pela edição dos dados de um médico (desafio).
-Exclusão: Responsável pela exclusão de um médico.
-Carousel: Responsável pela exibição dos médicos em um carousel (desafio).
+### Modules:
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-2. Arquivos HTML
+- **Login**: Responsible for user authentication.
+- **Registration**: Responsible for registering new doctors.
+- **Listing**: Responsible for listing all doctors.
+- **Details**: Responsible for displaying the details of a specific doctor.
+- **Edit**: Responsible for editing a doctor's data (challenge).
+- **Deletion**: Responsible for deleting a doctor.
+- **Carousel**: Responsible for displaying the doctors in a carousel (challenge).
 
-index.html: Página principal (listagem de médicos).
-cadastro.html: Página de cadastro de médicos.
-cards.html: Página de detalhes de um médico.
-editar.html: Página de edição de médicos (opcional).
+## 2. HTML Files
 
-3. Arquivos CSS
+- `index.html`: Main page (list of doctors).
+- `registration.html`: Doctors' registration page.
+- `cards.html`: Doctor details page.
+- `edit.html`: Page for editing doctors (optional).
 
-cards.css: Estilos da pagina de cards dos Medicos.
-register.css: Estilo da pagina de cadastro.
-home.css: Estilo da main page.
-style.css: Estilos globais para a aplicação.
-login.css: Estilos específicos para a página de login.
+## 3. CSS Files
 
-4. Arquivos JavaScript
+- `cards.css`: Styles for the Doctors cards page.
+- `register.css`: Style for the registration page.
+- `home.css`: Main page style.
+- `style.css`: Global styles for the application.
+- `login.css`: Specific styles for the login page.
 
-scripts.js: scripts gerais.
-Login.js: Lógica para o Login do usuario.
-Home.js: Logica da home page e carrosel.
-cadastro.js: Lógica para o cadastro de usuario.
-detalhes.js: Lógica para a exibição de detalhes de um médico.
-Doctor.js: Lógica para a edição de médicos (opcional).
+## 4. JavaScript Files
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-5. Implementação da Lógica
+- `scripts.js`: General scripts.
+- `login.js`: Logic for user login.
+- `home.js`: Logic for the home page and carousel.
+- `registration.js`: Logic for user registration.
+- `details.js`: Logic for displaying a doctor's details.
+- `doctor.js`: Logic for editing doctors (optional).
 
-5.1 Login
+## 5. Logic Implementation
 
-Utilizar a API de login para autenticar o usuário.
-Verificar se o usuário está autenticado antes de acessar as demais páginas.
+### 5.1 Login
 
-5.2 Cadastro
+- Use the login API to authenticate the user.
+- Check that the user is authenticated before accessing the other pages.
 
-Validar os dados do formulário de cadastro.
-Enviar os dados para a API de cadastro de médicos.
+### 5.2 Registration
 
-5.3 Listagem
+- Validate the data on the registration form.
+- Send the data to the doctor registration API.
 
-Obter os dados dos médicos da API de listagem.
-Exibir os dados na tela de forma organizada.
+### 5.3 Listing
 
-5.4 Detalhes
+- Get the doctors' data from the listing API.
+- Display the data on the screen in an organized way.
 
-Obter os detalhes do médico da API de filtro.
-Exibir os detalhes na tela.
+### 5.4 Details
 
-5.5 Edição (Desafio)
+- Get the doctor's details from the filter API.
+- Display the details on the screen.
 
-Obter os dados do médico da API de filtro.
-Preencher o formulário de edição com os dados do médico.
-Enviar os dados atualizados para a API de atualização de médicos.
+### 5.5 Editing (Challenge)
 
-5.6 Exclusão
+- Get the doctor's details from the filter API.
+- Fill in the editing form with the doctor's details.
+- Send the updated data to the doctor update API.
 
-Obter a confirmação do usuário para excluir o médico.
-Enviar a requisição para a API de exclusão de médicos.
+### 5.6 Deletion
 
-5.7 Carousel (Desafio)
+- Obtain confirmation from the user to delete the doctor.
+- Send the request to the API for deleting doctors.
 
-Incluir o carousel na página de listagem.
-Configurar o carousel para exibir os dados dos médicos.
+### 5.7 Carousel (Challenge)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Include the carousel on the list page.
+- Configure the carousel to display the doctors' data.
 
-6. Desafios
+## 6. Challenges
 
-6.1 Carousel
+### 6.1 Carousel
 
-Implementar um carousel utilizando Bootstrap para exibir os médicos de forma mais dinâmica.
-Adaptar a interface de listagem para incluir o carousel.
+- Implement a carousel using Bootstrap to display doctors more dynamically.
+- Adapt the listing interface to include the carousel.
 
-6.2 Edição
+### 6.2 Editing
 
-Implementar a funcionalidade de edição de médicos.
-Utilizar a API de atualização de médicos para enviar os dados atualizados para o servidor.
+- Implement doctor editing functionality.
+- Use the doctor update API to send the updated data to the server.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-7. Ferramentas
+## 7. Tools
 
-HTML: Para estruturar o layout e os elementos da interface.
-CSS: Para definir o estilo visual dos elementos HTML.
-JavaScript: Para interagir com o usuário, manipular dados e se comunicar com a API.
-Bootstrap: Para criar o carousel (desafio).
+- **HTML**: To structure the layout and interface elements.
+- **CSS**: To define the visual style of HTML elements.
+- **JavaScript**: To interact with the user, manipulate data and communicate with the API.
+- **Bootstrap**: To create the carousel (challenge).
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-8. API
+## 8. API
 
-Put – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/atualizar/medico/:id 
-Login - https://back-login.vercel.app/usuarios
-Get – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/listar/medicos 
-Filtro - https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/buscar/medico/:id 
-Post – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/novo/medico 
-Delete – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/excluir/medico/:id
-
+- **PUT** - `https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/atualizar/medico/:id`
+- **Login** - `https://back-login.vercel.app/usuarios`
+- **GET** - `https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/listar/medicos`
+- **Filter** - `https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/buscar/medico/:id`
+- **POST** - `https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/novo/medico`
+- **DELETE** - `https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/excluir/medico/:id`

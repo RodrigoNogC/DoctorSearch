@@ -1,0 +1,111 @@
+body {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right,#e2e2e2, #c9d6ff);
+
+}
+
+header {
+    background-color: white;
+    height: 80px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+}
+
+#logo {
+    margin-left: 150px;
+    font-size: x-large;
+    color: #2ECC71;
+    font-weight: bold;
+}
+
+.search-profile{
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-right: 10px; 
+}
+
+.search-input {
+    background-image: url(../img/icons8-pesquisar-24.png);
+    color: black;
+    background-position: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #C4C4C4;
+    background-repeat: no-repeat;
+    background-color: #C4C4C4;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 400px;
+    height: 40px;
+}
+
+.btnprofile {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid #48B02C;
+    background-color: #48B02C;
+    align-items: center;
+    gap: 5px;
+}
+
+.btnexit {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #ef0c0c;
+    background-color: #ef0c0c;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.imgexit {
+    height: 20px;
+    width: 20px;
+}
+
+.imgprofile{
+    height: 20px;
+    width: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    width: 10px;
+    height: 10px;
+}
+
+/* cards.css */
+.card {
+    margin-bottom: 20px;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}

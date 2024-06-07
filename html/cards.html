@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/geral.css">
+    <link rel="shortcut icon" href="../img/favicom.png" type="image/x-icon">
+    <title>MedicalSearch</title>
+</head>
+
+<body>
+    <abbr title=""></abbr>
+    <header>
+        <h1 id="logo">MedicalSearch</h1>
+        <nav class="navbar">
+            <div class="search-profile">
+                <div class="search">
+                    <input id="search-input" class="search-input" type="text" placeholder="Busque o Médico Aqui">
+                </div>
+                <button class="btnprofile">
+                    <img class="imgprofile" type="button" src="../img/profile.png" alt=""><a href="../html/register.html">REGISTRE-SE</a>
+                </button>
+                <button class="btnexit">
+                    <img class="imgexit" src="../img/exit.png" alt="exit"><a href="../html/home.html">Voltar</a>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <button id="addCardButton" class="btn btn-primary mb-3">Adicionar Novo Médico</button>
+        <div id="cardsContainer" class="row"></div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="medicoModal" tabindex="-1" aria-labelledby="medicoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="medicoModalLabel">Adicionar Médico</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="medicoForm">
+                        <div class="form-group">
+                            <label for="medicoNome">Nome</label>
+                            <input type="text" class="form-control" id="medicoNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicoCrm">CRM</label>
+                            <input type="text" class="form-control" id="medicoCrm" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicoImage">URL da Imagem</label>
+                            <input type="text" class="form-control" id="medicoImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Scripts/Docctor.js"></script>
+</body>
+</html>

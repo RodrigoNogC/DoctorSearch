@@ -1,3 +1,7 @@
+
+# Project Title
+
+A brief description of what this project does and who it's for
 1. Estrutura do Projeto
 
 O projeto será dividido em módulos para facilitar o desenvolvimento e a organização do código. Cada módulo terá seu próprio arquivo HTML, CSS e JavaScript.
@@ -17,20 +21,25 @@ Carousel: Responsável pela exibição dos médicos em um carousel (desafio).
 
 index.html: Página principal (listagem de médicos).
 cadastro.html: Página de cadastro de médicos.
-detalhes.html: Página de detalhes de um médico.
+cards.html: Página de detalhes de um médico.
 editar.html: Página de edição de médicos (opcional).
 
 3. Arquivos CSS
 
+cards.css: Estilos da pagina de cards dos Medicos.
+register.css: Estilo da pagina de cadastro.
+home.css: Estilo da main page.
 style.css: Estilos globais para a aplicação.
 login.css: Estilos específicos para a página de login.
 
 4. Arquivos JavaScript
 
-index.js: Lógica para a listagem de médicos.
-cadastro.js: Lógica para o cadastro de médicos.
+scripts.js: scripts gerais.
+Login.js: Lógica para o Login do usuario.
+Home.js: Logica da home page e carrosel.
+cadastro.js: Lógica para o cadastro de usuario.
 detalhes.js: Lógica para a exibição de detalhes de um médico.
-editar.js: Lógica para a edição de médicos (opcional).
+Doctor.js: Lógica para a edição de médicos (opcional).
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 5. Implementação da Lógica
@@ -102,3 +111,4 @@ Get – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/lis
 Filtro - https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/buscar/medico/:id 
 Post – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/novo/medico 
 Delete – https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/excluir/medico/:id
+

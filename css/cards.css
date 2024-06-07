@@ -106,6 +106,67 @@ body {
     width: 100vw;
 }
 
+.blackout {
+    display: none;
+    background-color: rgba(42, 42, 42, 0.792);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+}
+
+.blackout-edit {
+    display: none;
+    background-color: rgba(42, 42, 42, 0.792);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #188b48;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    border: 3px solid #48B02C;
+    text-align: center;
+    color: white;
+}
+
+.info > input, label {
+    display: block;
+    margin: 10px;
+}
+
+.info label {
+    font-size: 14pt;
+}
+
+.info  input {
+    border-radius: 30px;
+    width: 250px;
+    border: 0.5px solid #48B02C;
+    width: 250px;
+    height: 30px;
+    
+    text-align: center;
+}
+
+.btns {
+    margin-top: 20px;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -130,6 +191,7 @@ main {
 }
 
 .modal-doctor {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 3px solid #2ECC71;
@@ -176,7 +238,7 @@ main {
     font-size: 10pt;
 }
 
-.button-box{
+.button-box, .btns{
     display: flex;
     width: 100%;
     height: 60px;
@@ -186,7 +248,7 @@ main {
     align-self: flex-end;
 }
 
-.button-box > button {
+.button-box > button, .btns > button{
     color: white;
     border: 0.5px solid white;
     padding: 5px;
@@ -194,12 +256,12 @@ main {
     border-radius: 10px;
 }
 
-.edit {
+.edit, .adc {
     background-color: #48B02C;
     
 }
 
-.delete {
+.delete, .back {
     background-color: #ef0c0c;
 }
 

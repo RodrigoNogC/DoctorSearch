@@ -1,12 +1,72 @@
+let addCardButton = document.getElementById('addCardButton');
+let back = document.getElementById('back');
+let backEdit = document.getElementById('back-edit');
+let adc = document.getElementById('adc');
+let adcEdit = document.getElementById('btn-edit');
+const blackout = document.getElementById('blackout');
+const blackoutEdit = document.getElementById('blackout-edit');
+
+let editingDoctorId = null;
+
+addCardButton.addEventListener('click', function(){
+    blackout.style.display = 'flex';
+});
+
+back.addEventListener('click', function(){
+    blackout.style.display = 'none';
+});
+
+backEdit.addEventListener('click', function(){
+    blackoutEdit.style.display = 'none';
+});
+
+adc.addEventListener('click', function(event){
+    event.preventDefault();
+
+    const requestBody = {
+        nome: document.getElementById('name-input').value,
+        crm: document.getElementById('crm-input').value,
+        image: document.getElementById('img-input').value,
+        especialidade: document.getElementById('specialty-input').value
+    }
+    addDoctor(requestBody);
+});
+
+function addDoctor(doctor){
+    fetch('https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/novo/medico', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(doctor)
+    }).then(function(response) {
+        return response.json();
+    }).then(function(data){
+        createCard();
+        blackout.style.display = 'none';
+    })
+}
+
+function editDoctor(doctor, id){
+    fetch(`https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/atualizar/medico/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(doctor)
+    }).then(function(response) {
+        return response.json();
+    }).then(function(data){
+        createCard();
+        blackoutEdit.style.display = 'none';
+    })
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     await createCard();
 
     document.getElementById('search-input').addEventListener('input', function() {
         filterCards(this.value);
-    });
-
-    document.getElementById('addCardButton').addEventListener('click', function() {
-        showAddForm();
     });
 });
 
@@ -43,6 +103,7 @@ const createCard = async function() {
 
             data.medicos.forEach(doctor => {
                 let doctorCard = document.createElement('div');
+                doctorCard.setAttribute('id', `doctor-card-${doctor.id}`);
 
                 let doctorImageBox = document.createElement('div');
                 let doctorImage = document.createElement('img');
@@ -70,8 +131,8 @@ const createCard = async function() {
                 buttonBox.setAttribute('class', 'button-box');
                 editButton.setAttribute('class', 'edit');
                 deleteButton.setAttribute('class', 'delete');
-                editButton.setAttribute('type', 'button');
-                deleteButton.setAttribute('type', 'button');
+                editButton.setAttribute('type', 'submit');
+                deleteButton.setAttribute('type', 'submit');
 
                 modalFeed.appendChild(doctorCard);
 
@@ -91,160 +152,59 @@ const createCard = async function() {
                 editButton.appendChild(buttonEditText);
                 deleteButton.appendChild(buttonDeleteText);
 
-                editButton.addEventListener('click', function(){
-                    showEditForm(doctor);
+                editButton.addEventListener('click', function(event){
+                    blackoutEdit.style.display = 'flex';
+                    document.getElementById('name-input-edit').value = doctor.nome;
+                    document.getElementById('crm-input-edit').value = doctor.crm;
+                    document.getElementById('img-input-edit').value = doctor.image;
+                    document.getElementById('specialty-input-edit').value = doctor.especialidade;
+                    editingDoctorId = doctor.id;  // Store the doctor ID to be edited
                 });
 
-                deleteButton.addEventListener('click', function(){
-                    const id = doctor.id;
-                    deleteDoctor(id);
+                deleteButton.addEventListener('click', async function(){
+                    alert(`Doutor(a) Deletado!`)
+
+                    try {
+                        const response = await fetch(`https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/excluir/medico/${doctor.id}`, {
+                            method: 'DELETE'
+                        });
+                
+                        if (!response.ok) {
+                            const errorText = await response.text();
+                            throw new Error(errorText);
+                        }
+
+                        window.location.reload();
+                        
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('Erro ao excluir médico.');
+                    }
                 });
             });
 
         } else {
-            alert('Nenhum Médico encontrado');
+            alert(data.medicos);
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.log('Error:', error);
     }
 }
 
-const deleteDoctor = async function(id) {
-    try {
-        const response = await fetch(`https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/excluir/medico/${id}`, {
-            method: 'DELETE',
-        });
-        if (!response.ok) {
-            throw new Error('Erro ao fazer DELETE request');
-        }
-        console.log('Médico excluído com sucesso');
-        await createCard();
-    } catch (error) {
-        console.error('Ocorreu um erro:', error);
+adcEdit.addEventListener('click', function(event){
+    event.preventDefault();
+    const requestEditBody = {
+        nome: document.getElementById('name-input-edit').value,
+        crm: document.getElementById('crm-input-edit').value,
+        image: document.getElementById('img-input-edit').value,
+        especialidade: document.getElementById('specialty-input-edit').value
     }
-}
-
-const createNewDoctor = async function(formData) {
-    try {
-        const response = await fetch('https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/novo/medico', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Erro ao criar novo médico: ${errorData.message}`);
-        }
-
-        console.log('Novo médico criado com sucesso');
-        await createCard();
-    } catch (error) {
-        console.error('Ocorreu um erro:', error);
-        // Exibir mensagem de erro ao usuário
-        alert('Erro ao criar novo médico. Verifique se todos os campos estão preenchidos corretamente.');
+    if (editingDoctorId !== null) {
+        editDoctor(requestEditBody, editingDoctorId);
+        editingDoctorId = null;
     }
-};
+});
 
-
-const showEditForm = function(doctor) {
-    showModal('Editar Médico', doctor);
-};
-
-const showAddForm = function() {
-    showModal('Adicionar Novo Médico');
-};
-
-const showModal = function(title, doctor = {}) {
-    const modalBackground = document.createElement('div');
-    modalBackground.style.position = 'fixed';
-    modalBackground.style.top = '0';
-    modalBackground.style.left = '0';
-    modalBackground.style.width = '100%';
-    modalBackground.style.height = '100%';
-    modalBackground.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    modalBackground.style.display = 'flex';
-    modalBackground.style.justifyContent = 'center';
-    modalBackground.style.alignItems = 'center';
-    modalBackground.style.zIndex = '1000';
-
-    const modalBox = document.createElement('div');
-    modalBox.style.backgroundColor = 'white';
-    modalBox.style.padding = '20px';
-    modalBox.style.borderRadius = '10px';
-    modalBox.style.width = '400px';
-    modalBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.25)';
-
-    const modalTitle = document.createElement('h2');
-    modalTitle.textContent = title;
-    modalBox.appendChild(modalTitle);
-
-    const form = document.createElement('form');
-    form.innerHTML = `
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" value="${doctor.nome || ''}"><br>
-        <label for="crm">CRM:</label>
-        <input type="text" id="crm" name="crm" value="${doctor.crm || ''}"><br>
-        <label for="specialty">Especialidade:</label>
-        <input type="text" id="specialty" name="specialty" value="${doctor.especialidade || ''}"><br>
-        <label for="image">URL da Imagem:</label>
-        <input type="text" id="image" name="image" value="${doctor.image || ''}"><br>
-        <button type="submit">Salvar</button>
-    `;
-
-    form.addEventListener('submit', async function(event) {
-        event.preventDefault();
-    
-        const formData = {
-            nome: document.getElementById('name').value,
-            crm: document.getElementById('crm').value,
-            especialidade: document.getElementById('specialty').value,
-            image: document.getElementById('image').value
-        };
-    
-        if (doctor.id) {
-            await updateDoctor(doctor.id, formData);
-        } else {
-            await createNewDoctor(formData);
-        }
-    
-        // Aqui está o problema, vamos verificar
-        document.body.removeChild(modalBackground);
-    });
-
-    modalBox.appendChild(form);
-
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Fechar';
-    closeButton.addEventListener('click', function() {
-        document.body.removeChild(modalBackground);
-    });
-    modalBox.appendChild(closeButton);
-
-    modalBackground.appendChild(modalBox);
-    document.body.appendChild(modalBackground);
-};
-
-const updateDoctor = async function(id, newData) {
-    try {
-        const response = await fetch(`https://projeto-integrado-avaliacao.azurewebsites.net/projeto4/fecaf/atualizar/medico/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newData)
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Erro ao atualizar médico: ${errorData.message}`);
-        }
-
-        console.log('Médico atualizado com sucesso');
-        await createCard();
-    } catch (error) {
-        console.error('Ocorreu um erro:', error);
-    }
-};
+window.addEventListener('load', async function(){
+    await createCard();
+});

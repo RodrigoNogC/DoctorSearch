@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/geral.css">
     <link rel="shortcut icon" href="../img/favicom.png" type="image/x-icon">
     <title>MedicalSearch</title>
+    <script src="../Scripts/doctors.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <nav class="navbar">
             <div class="search-profile">
                 <div class="search">
-                    <input id="search-input" class="search-input" type="text" placeholder="Busque o Médico Aqui">
+                    <input id="search-input" class="search-input" type="text" placeholder="Busque o Médico Aqui" autocomplete="off">
                 </div>
                 <button class="btnprofile">
                     <img class="imgprofile" type="button" src="../img/profile.png" alt=""><a href="../html/register.html">REGISTRE-SE</a>
@@ -44,30 +45,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="medicoForm">
-                        <div class="form-group">
-                            <label for="medicoNome">Nome</label>
-                            <input type="text" class="form-control" id="medicoNome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="medicoCrm">CRM</label>
-                            <input type="text" class="form-control" id="medicoCrm" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="medicoImage">URL da Imagem</label>
-                            <input type="text" class="form-control" id="medicoImage" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </form>
-                </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal-body" id="modal-feed">
+        <div class="modal-doctor"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../Scripts/Docctor.js"></script>
 </body>
 </html>

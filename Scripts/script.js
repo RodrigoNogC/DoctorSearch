@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Dados da API:', data); 
              (data.success)
                 alert('Login bem-sucedido!');
-                window.location.href = '../html/home.html';
+                window.location.href = './home.html';
         })
         .catch(error => {
             console.error('Erro:', error);
